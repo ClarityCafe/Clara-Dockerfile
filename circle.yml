@@ -25,6 +25,3 @@ jobs:
       - run:
           name: Build Clara (Ubuntu)
           command: docker build -t chinodesuuu/clara:ubuntu ./Clara-Ubuntu
-      - run:
-          name: Build Sayori (Ubuntu)
-          command: docker build -t chinodesuuu/sayori:ubuntu ./Sayori-Ubuntu
