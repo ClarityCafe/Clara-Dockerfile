@@ -25,3 +25,6 @@ jobs:
       - run:
           name: Build Clara (Ubuntu)
           command: docker build -t chinodesuuu/clara:ubuntu ./Clara-Ubuntu
+      - run:
+         name: Docker Push (Clara)
+         command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/clara:ubuntu          
