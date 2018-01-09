@@ -27,6 +27,7 @@ sudo apt -y install nodejs
 # npm install yo?
 npm i -g pm2  && \
 mkdir /.pm2
+mkdir /.npm
 
 # manually install Python 3.6
 #cd /usr/src && \
@@ -71,6 +72,7 @@ chgrp root /opt
 chown -R user:root /opt/app
 chown -R user:root /.pm2
 chmod -R g+rw /.pm2
+chmod -R g+rw /.npm
 chmod -R g+rw /opt/app
 chmod -R g+rw /home/user
 find /home/user -type d -exec chmod g+x {} +
