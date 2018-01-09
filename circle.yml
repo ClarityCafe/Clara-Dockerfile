@@ -24,8 +24,8 @@ jobs:
             tar -xz -C /tmp -f /tmp/docker-$VER.tgz
             mv /tmp/docker/* /usr/bin
       - run:
-          name: Build Monika (Ubuntu)
-          command: docker build -t chinodesuuu/monika:ubuntu ./Monika-Ubuntu
+          name: Build Clara (Ubuntu)
+          command: docker build -t chinodesuuu/clara:ubuntu ./Clara-ubuntu
       - run:
           name: Build Sayori (Ubuntu)
           command: docker build -t chinodesuuu/sayori:ubuntu ./Sayori-Ubuntu
