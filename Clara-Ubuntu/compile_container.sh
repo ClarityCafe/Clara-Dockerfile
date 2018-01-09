@@ -51,7 +51,7 @@ usermod -p "*" user
 cd /opt && \
 git clone https://github.com/ClarityMoe/Clara && \
 mkdir /opt/app && \
-mv /opt/monika/src/* /opt/app && \
+mv /opt/Clara/src/* /opt/app && \
 mv /opt/Clara/package.json /opt/app && \
 rm -rf /opt/Clara && \
 cd /opt/app && \
