@@ -53,6 +53,8 @@ usermod -p "*" user
 #clone repo, expose Clara as app, then trim contents
 cd /opt && \
 git clone https://github.com/ClarityMoe/Clara && \
+cd Clara && \
+git checkout 0.4.x && \
 mkdir /opt/app && \
 mv /opt/Clara/src/* /opt/app && \
 mv /opt/Clara/package.json /opt/app && \
