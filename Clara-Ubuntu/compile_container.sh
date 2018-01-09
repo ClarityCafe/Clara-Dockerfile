@@ -25,7 +25,7 @@ curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash - && \
 sudo apt -y install nodejs
 
 # npm install yo?
-npm i -g  && \
+npm i -g pm2  && \
 mkdir /.pm2
 
 # manually install Python 3.6
