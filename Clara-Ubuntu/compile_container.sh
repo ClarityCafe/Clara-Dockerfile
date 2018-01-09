@@ -25,7 +25,8 @@ curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash - && \
 sudo apt -y install nodejs
 
 # npm install yo?
-npm i -g pm2
+npm i -g  && \
+mkdir /.pm2
 
 # manually install Python 3.6
 #cd /usr/src && \
@@ -68,6 +69,8 @@ chgrp root /opt
 
 # allow to run on openshift
 chown -R user:root /opt/app
+chown -R user:root /.pm2
+chmod -R g+rw /.pm2
 chmod -R g+rw /opt/app
 chmod -R g+rw /home/user
 find /home/user -type d -exec chmod g+x {} +
