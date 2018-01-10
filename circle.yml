@@ -27,4 +27,10 @@ jobs:
           command: docker build -t chinodesuuu/clara:ubuntu ./Clara-Ubuntu
       - run:
          name: Docker Push (Clara)
-         command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/clara:ubuntu          
+         command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/clara:ubuntu 
+      - run:
+          name: Build Clara (Ubuntu - Nightly)
+          command: docker build -t chinodesuuu/clara:ubuntu-nightly ./Clara-Ubuntu-Nightly          
+      - run:
+         name: Docker Push (Clara - Nightly)
+         command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/clara:ubuntu-nightly                   
