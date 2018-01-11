@@ -21,7 +21,7 @@ apt install -y \
     openssh-server \
     gettext  \
 
-curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash - && \
+curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash - && \
 sudo apt -y install nodejs
 
 # npm install yo?
