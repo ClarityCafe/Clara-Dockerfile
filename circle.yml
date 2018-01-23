@@ -24,6 +24,9 @@ jobs:
           name: Build Clara (Nightly)
           command: docker build -t chinodesuuu/clara:ubuntu-nightly ./Clara-Ubuntu-Nightly
       - run:
+          name: Build Clara (Nightly - Alpine Test image)
+          command: docker build -t chinodesuuu/clara:alpine-nightly ./Clara-Alpine-Nightly
+      - run:
           name: Docker Push (Clara)
           command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/clara:ubuntu
       - run:
