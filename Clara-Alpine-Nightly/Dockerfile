@@ -1,7 +1,7 @@
 # Monika Dockerfile
 # Note: This one does not work on OpenShift. Use the xx-osio tagged images instead
 # Copyright (c) 2018 Clarity. 
-FROM nodejs:alpine
+FROM node:alpine
 MAINTAINER Capuccino <chinodesuuu@gmail.com>
 
 ENV DISCORD_TOKEN ""
