@@ -5,6 +5,7 @@
 apk install  \
     build-base \
     ffmpeg \
+    git \
     sudo \
     python3 \
     openssh-server \
