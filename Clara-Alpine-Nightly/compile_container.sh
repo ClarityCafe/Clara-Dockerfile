@@ -17,11 +17,9 @@ apk add  \
 npm i -g pm2 npm@4 
 
 # Create user
-mkdir /var/run/sshd && \
-sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd && \
-echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
-useradd -u 1000 -G users,sudo -d /home/user --shell /bin/bash -m user && \
-usermod -p "*" user 
+adduser user
+echo "user ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/user
+chmod 0440 /etc/sudoers.d/user
 
 #clone repo, expose Clara as app, then trim contents
 cd /opt && \
