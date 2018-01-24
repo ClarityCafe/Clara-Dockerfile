@@ -11,7 +11,8 @@ apk add  \
     sudo \
     python3 \
     openssh-server \
-
+    nodejs 
+    
 # npm install yo?
 npm i -g pm2 npm@4 
 
