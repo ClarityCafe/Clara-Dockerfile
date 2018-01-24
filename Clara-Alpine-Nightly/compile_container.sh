@@ -2,7 +2,9 @@
 
 # The reason we're doing the package install here is to keep everything in one layer for easier downloads
 # It's relatively more convinient this way
-apk install  \
+apk update && \
+apk upgrade && \
+apk add  \
     build-base \
     ffmpeg \
     git \
