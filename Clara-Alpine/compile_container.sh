@@ -39,8 +39,8 @@ chmod g+rw /opt
 chgrp root /opt
 
 # allow to run on openshift
-chown -R user:root /opt/app
-chown -R user:root /opt/app/*
+chown -R node:root /opt/app
+chown -R node:root /opt/app/*
 chmod -R g+rw /opt/app
-chmod -R g+rw /home/user
+chmod -R g+rw /home/node
 find /home/user -type d -exec chmod g+x {} +
