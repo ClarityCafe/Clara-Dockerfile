@@ -71,12 +71,6 @@ jobs:
           
 workflows:
   version: 2
-  commit-workflow:
-    jobs:
-      - build
-      - deploy:
-          requires:
-             - build
   scheduled-workflow:
     triggers:
       - schedule:
@@ -85,10 +79,7 @@ workflows:
             branches:
               only: master
     jobs:
-      - build
-      - deploy:
-          requires:
-             - build
+      - deploy
   build-n-deploy: 
     jobs:
       - build
