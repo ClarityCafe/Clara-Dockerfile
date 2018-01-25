@@ -25,7 +25,7 @@ echo "user ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/user
 chmod 0440 /etc/sudoers.d/user
 
 #clone repo, expose Clara as app, then trim contents
-mkdir /opt && \
+chmod a+x /opt && \
 cd /opt && \
 git clone https://github.com/ClarityMoe/Clara && \
 cd Clara && \
@@ -44,7 +44,6 @@ chgrp root /opt
 # allow to run on openshift
 chown -R user:root /opt/app
 chown -R user:root /opt/app/*
-chmod a+x /opt
 chmod -R g+rw /opt/app
 chmod -R g+rw /home/user
 find /home/user -type d -exec chmod g+x {} +
