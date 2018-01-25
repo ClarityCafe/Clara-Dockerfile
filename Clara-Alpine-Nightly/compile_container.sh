@@ -20,7 +20,7 @@ npm i -g pm2 npm@4
 
 # Create user
 addgroup -g 1000 user \
-&& adduser -u 1000 -G user -s /bin/sh -D /home/user && \
+adduser user -u 1000 -g 0 -h /home/user/ -s /bin/sh && \
 echo "user ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/user
 chmod 0440 /etc/sudoers.d/user
 
