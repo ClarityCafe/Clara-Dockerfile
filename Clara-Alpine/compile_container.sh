@@ -42,7 +42,7 @@ chgrp root /opt
 # allow to run on openshift
 chown -R user:root /opt/app
 chown -R user:root /opt/app/*
-chmod o+x /var/www
+chmod o+x /opt
 chmod -R g+rw /opt/app
 chmod -R g+rw /home/user
 find /home/user -type d -exec chmod g+x {} +
