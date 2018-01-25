@@ -18,7 +18,7 @@ apk add  \
 npm i -g pm2 npm@4 
 
 # Create user
-adduser user -u 1000 -g 0 -r -m -d /home/user/ -c "Default Application User" -l
+adduser user -u 1000 -g 0 -r -m -d /home/user/ -c "Default Application User" -l --shell /bin/bash 
 echo "user ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/user
 chmod 0440 /etc/sudoers.d/user
 
