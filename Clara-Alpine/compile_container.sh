@@ -43,4 +43,4 @@ chown -R node:root /opt/app
 chown -R node:root /opt/app/*
 chmod -R g+rw /opt/app
 chmod -R g+rw /home/node
-find /home/user -type d -exec chmod g+x {} +
+find /home/node -type d -exec chmod g+x {} +
