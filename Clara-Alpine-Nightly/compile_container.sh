@@ -11,7 +11,8 @@ apk add  \
     sudo \
     python3 \
     openssh-server \
-    nodejs 
+    nodejs \
+    gettext
     
 # npm install yo?
 npm i -g pm2 npm@4 
@@ -39,9 +40,9 @@ chmod g+rw /opt
 chgrp root /opt
 
 # allow to run on openshift
+chown -R user:root /opt
 chown -R user:root /opt/app
 chown -R user:root /opt/app/*
-chown -R user:root /.pm2
 chmod -R g+rw /opt/app
 chmod -R g+rw /home/user
 find /home/user -type d -exec chmod g+x {} +
