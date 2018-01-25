@@ -18,25 +18,24 @@ jobs:
             tar -xz -C /tmp -f /tmp/docker-$VER.tgz
             mv /tmp/docker/* /usr/bin
       - run:
-          name: Build Clara (Nightly - Alpine Test image)
-          command: docker build -t chinodesuuu/clara:alpine-nightly ./Clara-Alpine-Nightly            
+          name: Build Clara (Nightly - Alpine Nightly)
+          command: docker build -t chinodesuuu/clara:alpine-nightly ./Clara-Alpine-Nightly          
       - run:
-          name: Build Clara (Stable)
+          name: Build Clara (Nightly - Alpine)
+          command: docker build -t chinodesuuu/clara:alpine ./Clara-Alpine            
+          
+      - run:
+          name: Build Clara (Ubuntu)
           command: docker build -t chinodesuuu/clara:ubuntu ./Clara-Ubuntu
       - run:
-          name: Build Clara (Nightly)
+          name: Build Clara (Ubuntu)
           command: docker build -t chinodesuuu/clara:ubuntu-nightly ./Clara-Ubuntu-Nightly
-      - run:
-          name: Docker Push (Clara)
-          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/clara:ubuntu
-      - run:
-          name: Docker Push (Clara Nightly)
-          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/clara:ubuntu-nightly            
   deploy:
     docker:
       - image: chinodesuuu/ci-amethyst:latest
     steps:
       - setup_remote_docker
+      - checkout
       - run:
           name: Install Docker client
           command: |
@@ -44,21 +43,32 @@ jobs:
             VER="17.05.0-ce"
             curl -L -o /tmp/docker-$VER.tgz https://get.docker.com/builds/Linux/x86_64/docker-$VER.tgz
             tar -xz -C /tmp -f /tmp/docker-$VER.tgz
-            mv /tmp/docker/* /usr/bin      
+            mv /tmp/docker/* /usr/bin
       - run:
-          name: Docker Pull (Clara)
-          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker pull chinodesuuu/clara:ubuntu
+          name: Build Clara (Nightly - Alpine Nightly)
+          command: docker build -t chinodesuuu/clara:alpine-nightly ./Clara-Alpine-Nightly          
       - run:
-          name: Docker Pull (Clara Nightly)
-          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker pull chinodesuuu/clara:ubuntu-nightly              
+          name: Build Clara (Alpine)
+          command: docker build -t chinodesuuu/clara:alpine ./Clara-Alpine            
       - run:
-          name: Docker Push (Clara)
+          name: Build Clara (Ubuntu)
+          command: docker build -t chinodesuuu/clara:ubuntu ./Clara-Ubuntu
+      - run:
+          name: Build Clara (Nightly - Ubuntu)
+          command: docker build -t chinodesuuu/clara:ubuntu-nightly ./Clara-Ubuntu-Nightly
+      - run:
+          name: Docker Push (Clara Ubuntu)
           command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/clara:ubuntu
       - run:
-          name: Docker Push (Clara Nightly)
-          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/clara:ubuntu-nightly          
+          name: Docker Push (Clara Ubuntu Nightly)
+          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/clara:ubuntu-nightly
+      - run:
+          name: Docker Push (Clara Alpine)
+          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/clara:alpine
+      - run:
+          name: Docker Push (Clara Alpine Nightly)
+          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/clara:alpine-nightly                    
           
-
 workflows:
   version: 2
   commit-workflow:
