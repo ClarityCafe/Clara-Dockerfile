@@ -58,16 +58,16 @@ jobs:
           command: docker build -t chinodesuuu/clara:ubuntu-nightly ./Clara-Ubuntu-Nightly
       - run:
           name: Docker Push (Clara Ubuntu)
-          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/clara:ubuntu
+          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/clara:ubuntu && docker push claritymoe/clara:ubuntu
       - run:
           name: Docker Push (Clara Ubuntu Nightly)
-          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/clara:ubuntu-nightly
+          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/clara:ubuntu-nightly && docker push claritymoe/clara:ubuntu-nightly
       - run:
           name: Docker Push (Clara Alpine)
-          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/clara:alpine
+          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/clara:alpine && docker push claritymoe/clara:alpine
       - run:
           name: Docker Push (Clara Alpine Nightly)
-          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/clara:alpine-nightly                    
+          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/clara:alpine-nightly && docker push claritymoe/clara:alpine-nightly                    
           
 workflows:
   version: 2
