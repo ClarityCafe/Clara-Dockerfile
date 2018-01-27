@@ -40,6 +40,8 @@ chgrp root /opt
 
 # allow to run on openshift
 mkdir /.pm2 && \
+mkdir /.npm && \
+chown -R node:root /.npm
 chown -R node:root /.pm2
 chown -R node:root /opt/app
 chown -R node:root /opt/app/*
