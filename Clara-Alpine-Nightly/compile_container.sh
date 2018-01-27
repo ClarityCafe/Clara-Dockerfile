@@ -32,15 +32,18 @@ mv /opt/Clara/src/* /opt/app && \
 mv /opt/Clara/package.json /opt/app && \
 rm -rf /opt/Clara && \
 cd /opt/app && \
-npm i --save --no-prune
+npm i --save
 
 # perm root awau
 chmod g+rw /opt
 chgrp root /opt
 
 # allow to run on openshift
+mkdir /.pm2 && \
+chown -R node:root /.pm2
 chown -R node:root /opt/app
 chown -R node:root /opt/app/*
+chmod -R g+rw /.pm2
 chmod -R g+rw /opt/app
 chmod -R g+rw /home/node
 find /home/node -type d -exec chmod g+x {} +
