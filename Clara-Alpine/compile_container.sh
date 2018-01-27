@@ -45,6 +45,7 @@ chown -R node:root /.npm
 chown -R node:root /.pm2
 chown -R node:root /opt/app
 chown -R node:root /opt/app/*
+chmod -R g+rw /.npm
 chmod -R g+rw /.pm2
 chmod -R g+rw /opt/app
 chmod -R g+rw /home/node
