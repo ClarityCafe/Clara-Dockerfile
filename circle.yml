@@ -18,10 +18,10 @@ jobs:
             tar -xz -C /tmp -f /tmp/docker-$VER.tgz
             mv /tmp/docker/* /usr/bin
       - run:
-          name: Build Clara (Nightly - Alpine Nightly)
+          name: Build Clara (Alpine Nightly)
           command: docker build -t chinodesuuu/clara:alpine-nightly ./Clara-Alpine-Nightly          
       - run:
-          name: Build Clara (Nightly - Alpine)
+          name: Build Clara (Alpine)
           command: docker build -t chinodesuuu/clara:alpine ./Clara-Alpine            
           
       - run:
@@ -45,7 +45,7 @@ jobs:
             tar -xz -C /tmp -f /tmp/docker-$VER.tgz
             mv /tmp/docker/* /usr/bin
       - run:
-          name: Build Clara (Nightly - Alpine Nightly)
+          name: Build Clara (Alpine Nightly)
           command: docker build -t chinodesuuu/clara:alpine-nightly ./Clara-Alpine-Nightly  && docker build -t claritymoe/clara:alpine-nightly ./Clara-Alpine-Nightly
       - run:
           name: Build Clara (Alpine)
