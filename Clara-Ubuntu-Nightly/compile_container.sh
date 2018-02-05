@@ -62,7 +62,8 @@ mv /opt/Clara/src/* /opt/app && \
 mv /opt/Clara/package.json /opt/app && \
 rm -rf /opt/Clara && \
 cd /opt/app && \
-npm i --save --no-prune
+npm i --save && \
+npm run postinstall
 
 # perm root awau
 chmod g+rw /opt
