@@ -22,6 +22,7 @@ ENV DISCORD_ORG_TOKEN ""
 ENV TWITCH_TOKEN ""
 ENV NASA_KEY ""
 ENV REDIS_URL ""
+ENV NODE_ENV production
 
 # ansible sucks so I'll compile it via this
 ADD compile_container.sh /tmp/
