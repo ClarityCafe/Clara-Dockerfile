@@ -48,7 +48,7 @@ spec:
         - name: SAUCENAO_TOKEN
            value: ''
         - name: YOUTUBE_TOKEN
-           value: AIzaSyBdarp6BUg43MTDviw_OmTf5LW7Y56N0Sw
+           value: ''
         - name: NASA_KEY
            value: ''
         - name: DEFAULT_PREFIX
