@@ -56,8 +56,8 @@ spec:
         - name: IB_TOKEN
           value: ''
         - name: ENABLE_PROMISE_WARNS
-          value: ''
+          value: false
         - name: DEBUG
-          value: ''
+          value: true
     resources: {}        
 
