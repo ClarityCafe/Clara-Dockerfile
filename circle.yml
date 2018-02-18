@@ -1,7 +1,7 @@
 version: 2
 notify:
- webhooks:
-   - url: https://Claraio-circledisc.herokuapp.com/hooks/circleci
+  webhooks:
+    - url: https://circledisc-clarity.herokuapp.com/webhook/circle
 jobs:
   build:
     docker:
