@@ -49,7 +49,7 @@ jobs:
           command: docker build -t chinodesuuu/clara:alpine-nightly ./Clara-Alpine-Nightly  && docker build -t claritymoe/clara:alpine-nightly ./Clara-Alpine-Nightly
       - run:
           name: Build Clara (Alpine)
-          command: docker build -t chinodesuuu/clara:alpine ./Clara-Alpine  && docker build -t claritymoe/clara:alpine ./Clara-Alpine
+          command: docker build -t chinodesuuu/clara:alpine ./Clara-Alpine  && docker build -t claritymoe/clara:alpine -t claritymoe/clara:latest ./Clara-Alpine
       - run:
           name: Build Clara (Ubuntu)
           command: docker build -t chinodesuuu/clara:ubuntu ./Clara-Ubuntu && docker build -t claritymoe/clara:ubuntu ./Clara-Ubuntu
