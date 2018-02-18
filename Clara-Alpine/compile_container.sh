@@ -26,7 +26,6 @@ chmod a+x /opt && \
 cd /opt && \
 git clone https://github.com/ClarityMoe/Clara && \
 cd Clara && \
-git checkout 0.4.x && \
 mkdir /opt/app && \
 mv /opt/Clara/src/* /opt/app && \
 mv /opt/Clara/package.json /opt/app && \
