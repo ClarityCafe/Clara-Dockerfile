@@ -5,13 +5,10 @@
 apk update && \
 apk upgrade && \
 apk add  \
-    build-base \
     bash \
     ffmpeg \
     git \
     sudo \
-    python3 \
-    openssh-server \
     gettext
     
 # npm install yo?
