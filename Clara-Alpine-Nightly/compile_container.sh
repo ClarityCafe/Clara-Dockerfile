@@ -6,7 +6,7 @@ apk update && \
 apk upgrade && \
 apk add  \
     bash \
-    ffmpeg \
+    build-base \
     git \
     sudo \
     gettext
@@ -48,3 +48,8 @@ chmod -R g+rw /.pm2
 chmod -R g+rw /opt/app
 chmod -R g+rw /home/node
 find /home/node -type d -exec chmod g+x {} +
+
+# clean up uneeded stuff
+apk del \
+   build-base \
+   git;
