@@ -6,7 +6,9 @@ apk update && \
 apk upgrade && \
 apk add  \
     bash \
+    ffmpeg \
     build-base \
+    python \
     git \
     sudo \
     gettext
@@ -23,14 +25,12 @@ chmod a+x /opt && \
 cd /opt && \
 git clone https://github.com/ClarityMoe/Clara && \
 cd Clara && \
-git checkout development && \
 mkdir /opt/app && \
 mv /opt/Clara/src/* /opt/app && \
 mv /opt/Clara/package.json /opt/app && \
 rm -rf /opt/Clara && \
 cd /opt/app && \
-npm i --save && \
-npm run circle-postinstall
+npm i --save 
 
 # perm root awau
 chmod g+rw /opt

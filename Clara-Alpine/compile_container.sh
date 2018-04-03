@@ -8,6 +8,7 @@ apk add  \
     bash \
     ffmpeg \
     build-base \
+    python \
     git \
     sudo \
     gettext
