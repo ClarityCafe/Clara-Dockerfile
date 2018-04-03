@@ -16,17 +16,3 @@ RUN chmod a+x /tmp/container_run.sh
 
 USER 1000
 CMD ["/tmp/container_run.sh"]
-
-# cleanup
-
-apt -y remove \
-    apt-utils \
-    zlib1g-dev \
-    build-essential \
-    software-properties-common \
-    python-software-properties \
-    curl \
-    wget \
-    cmake \
-    openssh-server \
-    gettext;
