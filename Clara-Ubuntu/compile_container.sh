@@ -3,7 +3,7 @@
 # The reason we're doing the package install here is to keep everything in one layer for easier downloads
 # It's relatively more convinient this way
 
-printf " >>>>>>>>>>>>>>>> INSTALL DEPS"
+echo " >>>>>>>>>>>>>>>> INSTALL DEPS"
 
 apt update && \
 apt install -y \
@@ -24,11 +24,11 @@ apt install -y \
     openssh-server \
     gettext  \
 
-printf "<<<<<<<<<<<<<<<<<<<<<<<<<< INSTALL DEPS"
-printf ">>>>>>>>>>>>>>>>>>>>>>>>>> INSTALL NODE"
+echo "<<<<<<<<<<<<<<<<<<<<<<<<<< INSTALL DEPS"
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>> INSTALL NODE"
 curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash - && \
 sudo apt -y install nodejs
-printf "<<<<<<<<<<<<<<<<<<<<<<<<<< INSTALL NODE"
+echo "<<<<<<<<<<<<<<<<<<<<<<<<<< INSTALL NODE"
 # npm install yo?
 npm i -g pm2  && \
 mkdir /.pm2
@@ -44,22 +44,22 @@ mkdir /.npm
 #   rm -rf /usr/src/Python-3.6.4.tgz && \
 # /usr/bin/python3 -V
 
-printf ">>>>>>>>>>>>>>>>>>>>> INSTALL PYTHON3.6"
+echo ">>>>>>>>>>>>>>>>>>>>> INSTALL PYTHON3.6"
 #install Python via APT repo instead
 add-apt-repository ppa:jonathonf/python-3.6 && \
 apt update && \
 apt -y install python3.6
-printf "<<<<<<<<<<<<<<<<<<<<<  INSTALL PYTHON3.6"
-printf ">>>>>>>>>>>>>>>>>>>>>  CREATE USER"
+echo "<<<<<<<<<<<<<<<<<<<<<  INSTALL PYTHON3.6"
+echo ">>>>>>>>>>>>>>>>>>>>>  CREATE USER"
 # Create user
 mkdir /var/run/sshd && \
 sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd && \
 echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
 useradd -u 1000 -G users,sudo -d /home/user --shell /bin/bash -m user && \
 usermod -p "*" user 
-printf "<<<<<<<<<<<<<<<<<<<<<<  CREATE USER"
+echo "<<<<<<<<<<<<<<<<<<<<<<  CREATE USER"
 
-printf ">>>>>>>>>>>>>>>>>>>>>> INSTALL CLARA"
+echo ">>>>>>>>>>>>>>>>>>>>>> INSTALL CLARA"
 #clone repo, expose Clara as app, then trim contents
 cd /opt && \
 git clone https://github.com/ClarityMoe/Clara && \
@@ -73,9 +73,9 @@ cd /opt/app && \
 npm i --save && \
 npm run circle-postinstall
 
-printf "<<<<<<<<<<<<<<<<<<<<<<<< INSTALL CLARA"
+echo "<<<<<<<<<<<<<<<<<<<<<<<< INSTALL CLARA"
 
-printf ">>>>>>>>>>>>>>>>>>>>>>>> OPENSHIFT OVERRIDES"
+echo ">>>>>>>>>>>>>>>>>>>>>>>> OPENSHIFT OVERRIDES"
 # perm root awau
 chmod g+rw /opt
 chgrp root /opt
@@ -91,9 +91,9 @@ chmod -R g+rw /home/user
 find /home/user -type d -exec chmod g+x {} +
 echo 'done'
 
-printf "<<<<<<<<<<<<<<<<<<<<<<<<< OPENSHIFT OVERRIDES"
+echo "<<<<<<<<<<<<<<<<<<<<<<<<< OPENSHIFT OVERRIDES"
 # cleanup
-printf ">>>>>>>>>>>>>>>>>>>>>>>> CLEANUP"
+echo ">>>>>>>>>>>>>>>>>>>>>>>> CLEANUP"
 apt -y remove \
     apt-utils \
     zlib1g-dev \
@@ -105,4 +105,4 @@ apt -y remove \
     cmake \
     openssh-server \
     gettext;
-printf "<<<<<<<<<<<<<<<<<<<<<<<< CLEANUP"
+echo "<<<<<<<<<<<<<<<<<<<<<<<< CLEANUP"
