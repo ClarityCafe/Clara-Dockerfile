@@ -52,4 +52,5 @@ find /home/node -type d -exec chmod g+x {} +
 # clean up uneeded stuff
 apk del \
    build-base \
+   python \
    git;
