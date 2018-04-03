@@ -76,3 +76,17 @@ chmod -R g+rw /.npm
 chmod -R g+rw /opt/app
 chmod -R g+rw /home/user
 find /home/user -type d -exec chmod g+x {} +
+
+# cleanup
+
+apt -y remove \
+    apt-utils \
+    zlib1g-dev \
+    build-essential \
+    software-properties-common \
+    python-software-properties \
+    curl \
+    wget \
+    cmake \
+    openssh-server \
+    gettext;
