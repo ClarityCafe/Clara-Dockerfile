@@ -1,7 +1,7 @@
 # Monika Dockerfile
 # Note: This one does not work on OpenShift. Use the xx-osio tagged images instead
 # Copyright (c) 2018 Clarity. 
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 MAINTAINER Capuccino <chinodesuuu@gmail.com>
 
 

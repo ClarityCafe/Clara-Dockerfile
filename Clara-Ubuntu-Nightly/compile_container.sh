@@ -26,30 +26,13 @@ apt install -y \
 
 echo "<<<<<<<<<<<<<<<<<<<<<<<<<< INSTALL DEPS"
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>> INSTALL NODE"
-curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash - && \
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - && \
 sudo apt -y install nodejs
 echo "<<<<<<<<<<<<<<<<<<<<<<<<<< INSTALL NODE"
 # npm install yo?
 npm i -g pm2  && \
 mkdir /.pm2
 mkdir /.npm
-
-# manually install Python 3.6
-#cd /usr/src && \
-#   wget https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz && \
-#   tar xzf Python-3.6.4.tgz && \
-#   cd Python-3.6.4 && \
-#   ./configure --enable-optimizations && \
-#   make altinstall && \
-#   rm -rf /usr/src/Python-3.6.4.tgz && \
-# /usr/bin/python3 -V
-
-echo ">>>>>>>>>>>>>>>>>>>>> INSTALL PYTHON3.6"
-#install Python via APT repo instead
-add-apt-repository ppa:jonathonf/python-3.6 && \
-apt update && \
-apt -y install python3.6
-echo "<<<<<<<<<<<<<<<<<<<<<  INSTALL PYTHON3.6"
 echo ">>>>>>>>>>>>>>>>>>>>>  CREATE USER"
 # Create user
 mkdir /var/run/sshd && \
@@ -95,14 +78,10 @@ echo "<<<<<<<<<<<<<<<<<<<<<<<<< OPENSHIFT OVERRIDES"
 # cleanup
 echo ">>>>>>>>>>>>>>>>>>>>>>>> CLEANUP"
 apt -y remove \
-    apt-utils \
     zlib1g-dev \
     build-essential \
     software-properties-common \
     python-software-properties \
-    curl \
-    wget \
     cmake \
     openssh-server \
-    gettext;
 echo "<<<<<<<<<<<<<<<<<<<<<<<< CLEANUP"
