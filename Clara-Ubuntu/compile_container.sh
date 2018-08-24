@@ -22,7 +22,7 @@ apt install -y \
     tar \
     cmake \
     openssh-server \
-    gettext  \
+    gettext;
 
 echo "<<<<<<<<<<<<<<<<<<<<<<<<<< INSTALL DEPS"
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>> INSTALL NODE"
@@ -84,4 +84,5 @@ apt -y remove \
     python-software-properties \
     cmake \
     openssh-server \
+    git;
 echo "<<<<<<<<<<<<<<<<<<<<<<<< CLEANUP"

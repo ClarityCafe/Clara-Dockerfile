@@ -22,7 +22,7 @@ apt install -y \
     tar \
     cmake \
     openssh-server \
-    gettext  \
+    gettext;
 
 echo "<<<<<<<<<<<<<<<<<<<<<<<<<< INSTALL DEPS"
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>> INSTALL NODE"
