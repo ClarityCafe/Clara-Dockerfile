@@ -18,18 +18,11 @@ jobs:
             tar -xz -C /tmp -f /tmp/docker-$VER.tgz
             mv /tmp/docker/* /usr/bin
       - run:
-          name: Build Clara (Alpine Nightly)
-          command: docker build -t claritymoe/clara:alpine-nightly ./Clara-Alpine-Nightly          
+          name: Build Clara (Nightly)
+          command: docker build -t claritymoe/clara:nightly ./Clara-Alpine-Nightly          
       - run:
-          name: Build Clara (Alpine)
-          command: docker build -t claritymoe/clara:alpine ./Clara-Alpine            
-          
-      - run:
-          name: Build Clara (Ubuntu)
-          command: docker build -t claritymoe/clara:ubuntu ./Clara-Ubuntu
-      - run:
-          name: Build Clara (Ubuntu)
-          command: docker build -t claritymoe/clara:ubuntu-nightly ./Clara-Ubuntu-Nightly
+          name: Build Clara (Latest)
+          command: docker build -t claritymoe/clara:latest ./Clara-Alpine            
   deploy:
     docker:
       - image: chinodesuuu/ci-amethyst:latest
@@ -45,29 +38,17 @@ jobs:
             tar -xz -C /tmp -f /tmp/docker-$VER.tgz
             mv /tmp/docker/* /usr/bin
       - run:
-          name: Build Clara (Alpine Nightly)
-          command: docker build -t claritymoe/clara:alpine-nightly ./Clara-Alpine-Nightly
+          name: Build Clara (Nightly)
+          command: docker build -t claritymoe/clara:nightly ./Clara-Alpine-Nightly          
       - run:
-          name: Build Clara (Alpine)
-          command: docker build -t claritymoe/clara:alpine -t claritymoe/clara:latest ./Clara-Alpine
+          name: Build Clara (Latest)
+          command: docker build -t claritymoe/clara:latest ./Clara-Alpine  
       - run:
-          name: Build Clara (Ubuntu)
-          command: docker build -t claritymoe/clara:ubuntu ./Clara-Ubuntu
+          name: Docker Push (Clara Latest)
+          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push claritymoe/clara:latest
       - run:
-          name: Build Clara (Nightly - Ubuntu)
-          command: docker build -t claritymoe/clara:ubuntu-nightly ./Clara-Ubuntu-Nightly
-      - run:
-          name: Docker Push (Clara Ubuntu)
-          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push claritymoe/clara:ubuntu
-      - run:
-          name: Docker Push (Clara Ubuntu Nightly)
-          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push claritymoe/clara:ubuntu-nightly
-      - run:
-          name: Docker Push (Clara Alpine)
-          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push claritymoe/clara:alpine && docker push claritymoe/clara:latest
-      - run:
-          name: Docker Push (Clara Alpine Nightly)
-          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push claritymoe/clara:alpine-nightly                    
+          name: Docker Push (Clara Nightly)
+          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push claritymoe/clara:nightly                    
           
 workflows:
   version: 2
