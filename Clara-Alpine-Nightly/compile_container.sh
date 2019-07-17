@@ -32,6 +32,10 @@ rm -rf /opt/Clara && \
 cd /opt/app && \
 npm i --save 
 
+
+#HACK: just to fix Clara not detecting package.json
+ln -s /opt/app/package.json /opt/package.json
+
 # perm root awau
 chmod g+rw /opt
 chgrp root /opt
