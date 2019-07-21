@@ -30,7 +30,8 @@ mv /opt/Clara/src/* /opt/app && \
 mv /opt/Clara/package.json /opt/app && \
 rm -rf /opt/Clara && \
 cd /opt/app && \
-npm i --save 
+npm i --save && \
+node /opt/app/lib/modules/depPreloader;
 
 #HACK: just to fix Clara not detecting package.json
 ln -s /opt/app/package.json /opt/package.json
