@@ -5,5 +5,6 @@ export NODE_OPTIONS="max_old_space_size=256"
 envsubst < /tmp/passwd_template > /tmp/passwd
 
 cd /opt/app && \
+node /opt/app/lib/modules/depPreloader && \
 pm2 start ./pm2.json && \
 pm2 logs Clara
